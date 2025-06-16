@@ -1,17 +1,22 @@
+---
 services:
   transmission:
     image: lscr.io/linuxserver/transmission:latest
     container_name: transmission
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=<TIMEZONE>
-      - USER=<USERNAME>
-      - PASS=<PASSWORD>
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - TRANSMISSION_WEB_HOME= #optional
+      - USER=%{USERNAME} #optional
+      - PASS=%{PASSWORD} #optional
+      - WHITELIST=${WHITELIST} #optional
+      - PEERPORT= #optional
+      - HOST_WHITELIST= #optional
     volumes:
       - ./config:/config
-      - <DOWNLOADS_PATH>:/downloads
-      - <WATCH_PATH>:/watch
+      - ${DOWNLOADS_PATH}:/downloads #optional
+      - ${WATCH_PATH}:/watch #optional
     ports:
       - 9091:9091
       - 51413:51413
