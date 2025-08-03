@@ -1,14 +1,9 @@
-labels:
-  device: loki
-
 steps:
-  - name: uname
+  ping:
     image: alpine
     commands:
-      - echo "Running test on Loki"
-      - uname -a
+      - echo "Running on Loki!"
     when:
-      labels:
-        linux: arm64
       event:
         - push
+      platform: linux/arm64
