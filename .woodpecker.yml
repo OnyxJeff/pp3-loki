@@ -1,9 +1,12 @@
-name: Test on Loki
 labels:
   device: loki
+
 steps:
   - name: uname
     image: alpine
     commands:
       - echo "Running test on Loki"
       - uname -a
+    when:
+      event:
+        - push
