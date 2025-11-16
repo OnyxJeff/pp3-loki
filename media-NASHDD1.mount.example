@@ -1,0 +1,12 @@
+[Unit]
+Description=NFS Mount for Transmission
+After=network.target
+
+[Mount]
+What=<IP of NAS of NFS share>:/mnt/network/share/location
+Where=/path/to/nfs_share
+Type=nfs
+Options=_netdev,auto,hard,intr,noatime
+
+[Install]
+WantedBy=multi-user.target
