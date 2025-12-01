@@ -229,6 +229,11 @@ sudo nano /etc/transmission-daemon/settings.json
   "rpc-username": "Your_Username",
   ```
   > [!NOTE]
+  > The current port conflicts with our monitoring container, so we have to change it
+    ```bash
+  "rpc-port": 9001,
+  ```
+  > [!NOTE]
   > This IP should be that of your home network
   ```bash
   "rpc-whitelist": "192.168.*.*",
@@ -283,11 +288,11 @@ sudo systemctl start transmission-daemon
 sudo shutdown now -r
 ```
 
-- Check out Transmission's web interface by going to the Raspberry Pi’s IP address followed by the port ```:9091```
+- Check out Transmission's web interface by going to the Raspberry Pi’s IP address followed by the port ```:9001```
 
 - Replace “<IPADDRESS>” in the URL below with your Pi’s local IP address to go to Transmission’s web interface.
 ```bash
-http://<IPADDRESS>:9091
+http://<IPADDRESS>:9001
 ```
 
 ---
